@@ -3,7 +3,7 @@
 Harmonist is a **mood-driven music recommendation app** built with **Flutter (frontend)** and **Python + Flask (backend)**.  
 The app connects to **Spotify API** and generates personalized playlists depending on the user’s current mood.  
 
----
+
 
 ## ✨ Features  
 - 🔐 **Authentication** – Sign up & Sign in system with JWT tokens  
@@ -13,7 +13,7 @@ The app connects to **Spotify API** and generates personalized playlists dependi
 - 📜 **Secure Backend** – Python + Flask backend with token-based authentication  
 - 📱 **Cross-Platform** – Works on Android & iOS (via Flutter)  
 
----
+
 
 ## 🛠️ Tech Stack  
 **Frontend (Flutter)**  
@@ -27,7 +27,6 @@ The app connects to **Spotify API** and generates personalized playlists dependi
 - JWT Authentication  
 - dotenv for secure keys  
 
----
 
 ## 🚀 How It Works  
 1. User signs in / signs up.  
@@ -36,5 +35,5 @@ The app connects to **Spotify API** and generates personalized playlists dependi
 4. Songs are displayed with cover images, artist names, and open directly in Spotify.  
 5. Each mood generates a **randomized recommendation order** for variety.  
 
----
+
 
