@@ -38,4 +38,3 @@ The app connects to **Spotify API** and generates personalized playlists dependi
 
 ---
 
-## 📂 Project Structure  
