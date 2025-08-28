@@ -80,7 +80,7 @@ MOOD_PLAYLISTS: Dict[str, List[str]] = {
 }
 
 def _track_to_dict(track: Dict[str, Any]) -> Dict[str, Any]:
-    """Spotipy track objesini Flutter'ın direkt açabileceği zengin bir sözlüğe çevir."""
+   
     if not track:
         return {}
 
