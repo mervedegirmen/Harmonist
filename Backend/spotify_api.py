@@ -23,8 +23,8 @@ sp = spotipy.Spotify(
 )
 
 # ------------------------------------------------------------
-# Mood (ruh hali) → Birden fazla Spotify Playlist ID listesi
-# (Senin paylaştığın linklerden çıkarılmış ID'ler + eski ID'lerin)
+# Mood (ruh hali) → Birden fazla Spotify Playlist ID listesi (en gunceli !
+
 # ------------------------------------------------------------
 MOOD_PLAYLISTS: Dict[str, List[str]] = {
     "sad": [
@@ -42,7 +42,7 @@ MOOD_PLAYLISTS: Dict[str, List[str]] = {
     "happy": [
         "4Fh0313D3PitYzICKHhZ7r",
         "7ue0JFwZLLUezhvF8HcDyq",
-        # "37i9dQZF1DXdPec7aLTmlC",  # istersen ek açık editor listesi
+        
     ],
     "relaxed": [
         "4rFthP2CHmFD6Cszc9mT9A",
@@ -66,7 +66,7 @@ MOOD_PLAYLISTS: Dict[str, List[str]] = {
     ],
     "hopeful": [
         "77qvKHsd1c9YGbGcnZVNzE",
-        "1M1ogQ10BKAdnW1SsMfsEc",  # aynı linki paylaşmıştın
+        "1M1ogQ10BKAdnW1SsMfsEc",  
     ],
     "confident": [
         "1krayF0y1dJhfLaGm0jHww",
@@ -93,7 +93,7 @@ def _track_to_dict(track: Dict[str, Any]) -> Dict[str, Any]:
         "artist": ", ".join(a.get("name", "") for a in track.get("artists", []) if a) or "",
         "track_url": (track.get("external_urls") or {}).get("spotify", ""),  # https://open.spotify.com/track/...
         "uri": track.get("uri", None),            # spotify:track:...
-        "image_url": image_url,                   # kapak görseli
+        "image_url": image_url,                   # kapak görselii icin (bu önemli!
         "preview_url": track.get("preview_url"),  # 30sn preview olabilir
     }
 
@@ -121,7 +121,7 @@ def get_playlist_by_mood(mood: str, limit: int = 30) -> List[Dict[str, Any]]:
     """
     Verilen mood'a uygun playlist'ten şarkıları döndürür.
     Mantık:
-      1) Mood içindeki playlistlerden RASTGELE birini seç
+      1) Mood içindeki playlistlerden RASTGELE birini seç (buraya bak!
       2) O playlist'in şarkılarını çek
       3) Şarkıları KARISTIR (random.shuffle)
       4) 'limit' kadarını döndür
@@ -138,7 +138,6 @@ def get_playlist_by_mood(mood: str, limit: int = 30) -> List[Dict[str, Any]]:
     pool = _fetch_tracks_from_playlist(chosen) # 2) şarkıları çek
     random.shuffle(pool)                       # 3) karıştır
 
-    # (Opsiyonel) tekrarları ayıkla (id/track_url ile uniq)
     seen = set()
     unique: List[Dict[str, Any]] = []
     for t in pool:
@@ -147,4 +146,4 @@ def get_playlist_by_mood(mood: str, limit: int = 30) -> List[Dict[str, Any]]:
             seen.add(key)
             unique.append(t)
 
-    return unique[:limit]                      # 4) limit uygula
+    return unique[:limit]                      # 4) limit için
