@@ -95,7 +95,7 @@ def register():
     try:
         cur = conn.cursor(dictionary=True)
 
-        # kullanıcı var mı?
+        # kullanıcı var mı bakalım
         cur.execute("SELECT id FROM users WHERE username=%s", (username,))
         if cur.fetchone():
             return jsonify({"error": "Username is already taken."}), 409
@@ -151,7 +151,7 @@ def login():
         conn.close()
 
 # -------------------------------------------------
-# Spotify playlist endpoint
+# Spotify playlist endpointler
 # -------------------------------------------------
 @app.route("/get_playlist", methods=["GET"])
 @token_required
@@ -167,7 +167,7 @@ def get_playlist(current_user_id):
         return jsonify({"error": str(e)}), 500
 
 # -------------------------------------------------
-# Main
+# Maini
 # -------------------------------------------------
 if __name__ == "__main__":
     init_db()
